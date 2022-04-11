@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'orders_Order_list' %}">
+    Order Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>order_date</td><td>{{ object.order_date }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'orders_Customer_list' %}">
+    Customer Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>surname</td><td>{{ object.surname }}</td></tr>
+    <tr><td>country</td><td>{{ object.country }}</td></tr>
+    <tr><td>address</td><td>{{ object.address }}</td></tr>
+    <tr><td>name</td><td>{{ object.name }}</td></tr>
+    <tr><td>city</td><td>{{ object.city }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}
