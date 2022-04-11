@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'warehouse_ProductBatch_list' %}">
+    ProductBatch Listing
+    </a>
+</p>
+    
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.errors}}
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="purchase_price_usd">purchase_price_usd: </label>
+  <input class="form-control col-sm-10" id="purchase_price_usd" type="text" name="purchase_price_usd" value="{{ object.purchase_price_usd }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="purchase_date">purchase_date: </label>
+  <input class="form-control col-sm-10" id="purchase_date" type="date" name="purchase_date" value="{{ object.purchase_date }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="last_updated">last_updated: </label>
+  <input class="form-control col-sm-10" id="last_updated" type="datetime-local" name="last_updated" value="{{ object.last_updated }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="created">created: </label>
+  <input class="form-control col-sm-10" id="created" type="datetime-local" name="created" value="{{ object.created }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="quantity">quantity: </label>
+  <input class="form-control col-sm-10" id="quantity" type="text" name="quantity" value="{{ object.quantity }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="purchase_price_pln">purchase_price_pln: </label>
+  <input class="form-control col-sm-10" id="purchase_price_pln" type="text" name="purchase_price_pln" value="{{ object.purchase_price_pln }}">
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary">
+</form>
+
+{% endblock %}
